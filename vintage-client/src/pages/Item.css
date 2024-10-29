@@ -1,0 +1,155 @@
+#Item .itemContainer {
+    width: 1000px;
+    height: 444px;
+    margin: 81px auto 0px auto;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+#Item .cover {
+    width: 444px;
+    height: 444px;
+    border: 1px solid #e2e2e2;
+}
+
+#Item .itemInfo {
+    width: 444px;
+    height: 444px;
+    position: relative;
+}
+
+#Item .brand {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#Item .name {
+    font-size: 20px;
+    margin-top: 17px;
+}
+
+#Item .detailInfo {
+    margin-top: 43px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+#Item .line {
+    display: flex;
+    gap: 6px;
+}
+
+#Item .defaultPrice {
+    color: #b2b2b2;
+    text-decoration: line-through;
+}
+
+#Item .discount {
+    color: #ff5a5a;
+}
+
+#Item .price {
+    font-weight: bold;
+}
+
+#Item .buttonContainer {
+    width: 444px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 14px;
+
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+#Item .black {
+    width: 444px;
+    height: 48px;
+    color: white;
+    background-color: #262626;
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 0.2s;
+}
+
+#Item .black:hover {
+    color: #f1a919;
+}
+
+#Item .black:focus {
+    color: #f1a919;
+}
+
+#Item .white {
+    width: 144px;
+    height: 40px;
+    border: 1px solid #cfcfcf;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 0.2s;
+}
+
+#Item .white:hover {
+    color: #f1a919;
+}
+
+#Item .white:focus {
+    color: #f1a919;
+}
+
+#Item .guide {
+    width: 1000px;
+    margin: 0px auto;
+}
+
+#Item .guide1 {
+    margin-top: 196px;
+}
+
+#Item .guide2 {
+    margin-top: 110px;
+}
+
+#Item .guide3 {
+    margin-top: 74px;
+}
+
+#Item .md {
+    width: 48px;
+    height: 20px;
+    border-radius: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    font-size: 10px;
+
+    animation-name: animationMd;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes animationMd {
+    from {
+        background-color: #BED0FF;
+        color: #3C5CCE;
+    }
+
+    to {
+        background-color: #3C5CCE;
+        color: #BED0FF;
+    }
+}

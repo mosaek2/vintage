@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mosaek2.vintage.mapper.ItemMapper">
+    <resultMap id="itemMap" type="com.mosaek2.vintage.domain.Item">
+        <id column="uid" property="uid"></id>
+        <result column="date" property="date"></result>
+        <result column="cover" property="cover"></result>
+        <result column="detail" property="detail"></result>
+        <result column="brand" property="brand"></result>
+        <result column="name" property="name"></result>
+        <result column="size" property="size"></result>
+        <result column="size_detail" property="sizeDetail"></result>
+        <result column="price" property="price"></result>
+        <result column="discount_rate" property="discountRate"></result>
+        <result column="discount_amount" property="discountAmount"></result>
+        <result column="condition" property="condition"></result>
+        <result column="category1" property="category1"></result>
+        <result column="category2" property="category2"></result>
+        <result column="category3" property="category3"></result>
+        <result column="gender" property="gender"></result>
+        <result column="display_yn" property="displayYn"></result>
+        <result column="md_yn" property="mdYn"></result>
+    </resultMap>
+
+    <select id="findItemsByCategory1" resultMap="itemMap">
+        SELECT *
+        FROM item_tb
+        WHERE (category1 LIKE CONCAT('%', #{category1}, '%') AND gender = #{category1}
+        OR category1 LIKE CONCAT('%', #{category1}, '%') AND gender IS NULL)
+        AND (display_yn = 'y')
+        ORDER BY date DESC;
+    </select>
+    <select id="findItemsByCategory2" resultMap="itemMap">
+        SELECT *
+        FROM item_tb
+        WHERE (category1 LIKE CONCAT('%', #{category1}, '%') AND category2 = #{category2} AND gender = #{category1}
+        OR category1 LIKE CONCAT('%', #{category1}, '%') AND category2 = #{category2} AND gender IS NULL)
+        AND (display_yn = 'y')
+        ORDER BY date DESC;
+    </select>
+    <select id="findItemsByCategory3" resultMap="itemMap">
+        SELECT *
+        FROM item_tb
+        WHERE (category1 LIKE CONCAT('%', #{category1}, '%') AND category2 = #{category2} AND category3 = #{category3}
+        AND gender = #{category1}
+        OR category1 LIKE CONCAT('%', #{category1}, '%') AND category2 = #{category2} AND category3 = #{category3} AND
+        gender IS NULL)
+        AND (display_yn = 'y')
+        ORDER BY date DESC;
+    </select>
+
+    <select id="findItemsByCategory1Low" resultMap="itemMap">
+        SELECT *
+        FROM item_tb
+        WHERE (category1 LIKE CONCAT('%', #{category1}, '%') AND gender = #{category1}
+        OR category1 LIKE CONCAT('%', #{category1}, '%') AND gender IS NULL)
+        AND (display_yn = 'y')
+        ORDER BY (price * discount_rate) - discount_amount ASC;
+    </select>
+    <select id="findItemsByCategory2Low" resultMap="itemMap">
+        SELECT *
+        FROM item_tb
+        WHERE (category1 LIKE CONCAT('%', #{category1}, '%') AND category2 = #{category2} AND gender = #{category1}
+        OR category1 LIKE CONCAT('%', #{category1}, '%') AND category2 = #{category2} AND gender IS NULL)
+        AND (display_yn = 'y')
+        ORDER BY (price * discount_rate) - discount_amount ASC;
+    </select>
+    <select id="findItemsByCategory3Low" resultMap="itemMap">
+        SELECT *
+        FROM item_tb
+        WHERE (category1 LIKE CONCAT('%', #{category1}, '%') AND category2 = #{category2} AND category3 = #{category3}
+        AND gender = #{category1}
+        OR category1 LIKE CONCAT('%', #{category1}, '%') AND category2 = #{category2} AND category3 = #{category3} AND
+        gender IS NULL)
+        AND (display_yn = 'y')
+        ORDER BY (price * discount_rate) - discount_amount ASC;
+    </select>
+
+    <select id="findItemsByCategory1High" resultMap="itemMap">
+        SELECT *
+        FROM item_tb
+        WHERE (category1 LIKE CONCAT('%', #{category1}, '%') AND gender = #{category1}
+        OR category1 LIKE CONCAT('%', #{category1}, '%') AND gender IS NULL)
+        AND (display_yn = 'y')
+        ORDER BY (price * discount_rate) - discount_amount DESC;
+    </select>
+    <select id="findItemsByCategory2High" resultMap="itemMap">
+        SELECT *
+        FROM item_tb
+        WHERE (category1 LIKE CONCAT('%', #{category1}, '%') AND category2 = #{category2} AND gender = #{category1}
+        OR category1 LIKE CONCAT('%', #{category1}, '%') AND category2 = #{category2} AND gender IS NULL)
+        AND (display_yn = 'y')
+        ORDER BY (price * discount_rate) - discount_amount DESC;
+    </select>
+    <select id="findItemsByCategory3High" resultMap="itemMap">
+        SELECT *
+        FROM item_tb
+        WHERE (category1 LIKE CONCAT('%', #{category1}, '%') AND category2 = #{category2} AND category3 = #{category3}
+        AND gender = #{category1}
+        OR category1 LIKE CONCAT('%', #{category1}, '%') AND category2 = #{category2} AND category3 = #{category3} AND
+        gender IS NULL)
+        AND (display_yn = 'y')
+        ORDER BY (price * discount_rate) - discount_amount DESC;
+    </select>
+
+    <select id="findItemsByCategory1Discount" resultMap="itemMap">
+        SELECT *
+        FROM item_tb
+        WHERE (category1 LIKE CONCAT('%', #{category1}, '%') AND gender = #{category1}
+        OR category1 LIKE CONCAT('%', #{category1}, '%') AND gender IS NULL)
+        AND (display_yn = 'y')
+        ORDER BY discount_rate ASC, discount_amount DESC;
+    </select>
+    <select id="findItemsByCategory2Discount" resultMap="itemMap">
+        SELECT *
+        FROM item_tb
+        WHERE (category1 LIKE CONCAT('%', #{category1}, '%') AND category2 = #{category2} AND gender = #{category1}
+        OR category1 LIKE CONCAT('%', #{category1}, '%') AND category2 = #{category2} AND gender IS NULL)
+        AND (display_yn = 'y')
+        ORDER BY discount_rate ASC, discount_amount DESC;
+    </select>
+    <select id="findItemsByCategory3Discount" resultMap="itemMap">
+        SELECT *
+        FROM item_tb
+        WHERE (category1 LIKE CONCAT('%', #{category1}, '%') AND category2 = #{category2} AND category3 = #{category3}
+        AND gender = #{category1}
+        OR category1 LIKE CONCAT('%', #{category1}, '%') AND category2 = #{category2} AND category3 = #{category3} AND
+        gender IS NULL)
+        AND (display_yn = 'y')
+        ORDER BY discount_rate ASC, discount_amount DESC;
+    </select>
+
+    <select id="findItemsSale" resultMap="itemMap">
+        SELECT *
+        FROM item_tb
+        WHERE (discount_rate != 1 OR discount_amount != 0) AND (display_yn = 'y')
+        ORDER BY discount_rate ASC, discount_amount DESC, price DESC;
+    </select>
+
+    <select id="findItemsNew" resultMap="itemMap">
+        SELECT *
+        FROM item_tb
+        WHERE (DATEDIFF(NOW(), date) <![CDATA[<=]]> 14) AND (display_yn = 'y')
+        ORDER BY date DESC;
+    </select>
+
+    <select id="findItemByUid" resultMap="itemMap">
+        SELECT *
+        FROM item_tb
+        WHERE uid = #{uid};
+    </select>
+</mapper>

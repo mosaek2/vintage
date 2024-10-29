@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mosaek2.vintage.mapper.MemberMapper">
+    <resultMap id="memberMap" type="com.mosaek2.vintage.domain.Member">
+        <id column="uid" property="uid"></id>
+        <result column="mail" property="mail"></result>
+        <result column="password" property="password"></result>
+        <result column="phone" property="phone"></result>
+        <result column="phone_alt" property="phoneAlt"></result>
+        <result column="name" property="name"></result>
+        <result column="birth" property="birth"></result>
+        <result column="solar_yn" property="solarYn"></result>
+        <result column="gender" property="gender"></result>
+        <result column="zip" property="zip"></result>
+        <result column="address" property="address"></result>
+        <result column="address_detail" property="addressDetail"></result>
+        <result column="join_date" property="joinDate"></result>
+        <result column="point" property="point"></result>
+        <result column="point_total" property="pointTotal"></result>
+        <result column="rank" property="rank"></result>
+        <result column="sms_yn" property="smsYn"></result>
+        <result column="mail_yn" property="mailYn"></result>
+        <result column="authority" property="authority"></result>
+        <result column="status" property="status"></result>
+        <result column="withdraw_date" property="withdrawDate"></result>
+        <result column="refund_bank" property="refundBank"></result>
+        <result column="refund_account" property="refundAccount"></result>
+    </resultMap>
+
+    <insert id="insertMember">
+        INSERT
+        INTO member_tb(mail, password, phone, phone_alt, name, birth, solar_yn, gender, zip, address, address_detail,
+        sms_yn, mail_yn, refund_bank, refund_account)
+        VALUE (#{mail}, #{password}, #{phone}, #{phoneAlt}, #{name}, #{birth}, #{solarYn}, #{gender}, #{zip},
+        #{address}, #{addressDetail}, #{smsYn}, #{mailYn}, #{refundBank}, #{refundAccount});
+    </insert>
+
+    <select id="findMemberByMail" resultMap="memberMap">
+        SELECT *
+        FROM member_tb
+        WHERE mail = #{mail};
+    </select>
+
+    <select id="findMemberByPhone" resultMap="memberMap">
+        SELECT *
+        FROM member_tb
+        WHERE phone = #{phone};
+    </select>
+</mapper>

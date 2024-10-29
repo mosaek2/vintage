@@ -1,0 +1,309 @@
+#Header .headerWrapper {
+    position: fixed;
+    transition-duration: 0.3s;
+
+    width: 100%;
+    height: 155px;
+    z-index: 100;
+}
+
+#Header .headerHide {
+    transform: translate(0px, -155px);
+}
+
+#Header header {
+    width: 100%;
+    height: 155px;
+    background-color: black;
+    transition-duration: 0.3s;
+
+    z-index: 100;
+    opacity: 0.85;
+}
+
+#Header .headerExtend {
+    height: 380px !important;
+}
+
+#Header .logo {
+    width: 221px;
+    height: 72px;
+    margin: 15px auto 33px auto;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+@media (max-width: 1000px) {
+    #Header .logo {
+        transform: translate(0px, 27px);
+    }
+}
+
+@media (max-width: 500px) {
+    #Header .logo {
+        transform: translate(0px, 47px);
+    }
+}
+
+@media (max-width: 360px) {
+    #Header .logo {
+        transform: translate(0px, 27px);
+    }
+}
+
+#Header .functionContainer {
+    display: flex;
+    min-width: 264px;
+    gap: 18px;
+    color: #818181;
+    font-size: 14px;
+
+    position: absolute;
+    top: 24px;
+    right: 82px;
+}
+
+@media (max-width: 360px) {
+    #Header .functionContainer {
+        display: none;
+    }
+}
+
+#Header .functionContainer>p {
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+#Header .functionContainer>p:hover {
+    color: #d1d1d1;
+}
+
+#Header .menuWrapper {
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    color: #818181;
+    margin: 0px auto;
+}
+
+#Header .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+@media (max-width: 1000px) {
+    #Header .menu {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 700px) {
+    #Header .menu {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    #Header .menu {
+        display: none;
+    }
+}
+
+#Header .menuShow {
+    color: #f1a919;
+}
+
+#Header .menu:hover {
+    color: #f1a919 !important;
+}
+
+#Header .triangle {
+    font-size: 10px;
+}
+
+#Header .subMenuBox {
+    width: 120px;
+    aspect-ratio: 120 / 160;
+    background-color: black;
+    transition-duration: 0.5s;
+    background-size: cover;
+}
+
+#Header .subMenuBox:hover {
+    transform: translate(0px, -5px);
+}
+
+#Header .subMenu {
+    width: 100%;
+    position: fixed;
+    top: 177px;
+
+    display: flex;
+    justify-content: center;
+    gap: 33px;
+
+    opacity: 0;
+    height: 0px;
+    overflow: hidden;
+}
+
+#Header .subMenuShow {
+    width: 100%;
+    position: fixed;
+    top: 177px;
+
+    display: flex;
+    justify-content: center;
+    gap: 33px;
+
+    transition-delay: 0.3s;
+    transition-duration: 0.5s;
+
+    z-index: 200;
+}
+
+#Header .manOuter {
+    background-image: url('/public/images/header/man_outer_1.png');
+    background-color: black;
+}
+
+#Header .manOuter:hover {
+    background-image: url('/public/images/header/man_outer_2.png');
+}
+
+#Header .manTop {
+    background-image: url('/public/images/header/man_top_1.png');
+    background-color: black;
+}
+
+#Header .manTop:hover {
+    background-image: url('/public/images/header/man_top_2.png');
+}
+
+#Header .manBottom {
+    background-image: url('/public/images/header/man_bottom_1.png');
+    background-color: black;
+}
+
+#Header .manBottom:hover {
+    background-image: url('/public/images/header/man_bottom_2.png');
+}
+
+#Header .womanOuter {
+    background-image: url('/public/images/header/woman_outer_1.png');
+    background-color: black;
+}
+
+#Header .womanOuter:hover {
+    background-image: url('/public/images/header/woman_outer_2.png');
+}
+
+#Header .womanTop {
+    background-image: url('/public/images/header/woman_top_1.png');
+    background-color: black;
+}
+
+#Header .womanTop:hover {
+    background-image: url('/public/images/header/woman_top_2.png');
+}
+
+#Header .womanBottom {
+    background-image: url('/public/images/header/woman_bottom_1.png');
+    background-color: black;
+}
+
+#Header .womanBottom:hover {
+    background-image: url('/public/images/header/woman_bottom_2.png');
+}
+
+#Header .womanDress {
+    background-image: url('/public/images/header/woman_dress_1.png');
+    background-color: black;
+}
+
+#Header .womanDress:hover {
+    background-image: url('/public/images/header/woman_dress_2.png');
+}
+
+#Header .accCap {
+    background-image: url('/public/images/header/acc_cap_1.png');
+    background-color: black;
+}
+
+#Header .accCap:hover {
+    background-image: url('/public/images/header/acc_cap_2.png');
+}
+
+#Header .accShoes {
+    background-image: url('/public/images/header/acc_shoes_1.png');
+    background-color: black;
+}
+
+#Header .accShoes:hover {
+    background-image: url('/public/images/header/acc_shoes_2.png');
+}
+
+#Header .accBag {
+    background-image: url('/public/images/header/acc_bag_1.png');
+    background-color: black;
+}
+
+#Header .accBag:hover {
+    background-image: url('/public/images/header/acc_bag_2.png');
+}
+
+#Header .accTie {
+    background-image: url('/public/images/header/acc_tie_1.png');
+    background-color: black;
+}
+
+#Header .accTie:hover {
+    background-image: url('/public/images/header/acc_tie_2.png');
+}
+
+#Header .accEtc {
+    background-image: url('/public/images/header/acc_etc_1.png');
+    background-color: black;
+}
+
+#Header .accEtc:hover {
+    background-image: url('/public/images/header/acc_etc_2.png');
+}
+
+#Header .comNotice {
+    background-image: url('/public/images/header/com_notice_1.png');
+    background-color: black;
+}
+
+#Header .comNotice:hover {
+    background-image: url('/public/images/header/com_notice_2.png');
+}
+
+#Header .comQna {
+    background-image: url('/public/images/header/com_qna_1.png');
+    background-color: black;
+}
+
+#Header .comQna:hover {
+    background-image: url('/public/images/header/com_qna_2.png');
+}
+
+#Header .comReview {
+    background-image: url('/public/images/header/com_review_1.png');
+    background-color: black;
+}
+
+#Header .comReview:hover {
+    background-image: url('/public/images/header/com_review_2.png');
+}
+
+@media (max-width: 500px) {
+    #Header .subMenuBox {
+        display: none;
+    }
+}

@@ -1,0 +1,16 @@
+#ItemsSale .itemContainer {
+    max-width: 1060px;
+    margin: 86px auto 0px auto;
+    column-gap: 22px;
+    row-gap: 100px;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#ItemsSale .sale {
+    display: block;
+    width: 365px;
+    height: 229px;
+    margin: 86px auto 0px auto;
+}

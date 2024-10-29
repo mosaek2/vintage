@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mosaek2.vintage.mapper.PostMapper">
+    <resultMap id="postMap" type="com.mosaek2.vintage.domain.Post">
+        <id column="uid" property="uid"></id>
+        <result column="board" property="board"></result>
+        <result column="title" property="title"></result>
+        <result column="content" property="content"></result>
+        <result column="write_date" property="writeDate"></result>
+        <result column="delete_yn" property="deleteYn"></result>
+        <result column="delete_date" property="deleteDate"></result>
+        <result column="modify_date" property="modifyDate"></result>
+        <result column="fix_yn" property="fixYn"></result>
+        <result column="answer_yn" property="answerYn"></result>
+
+        <association property="member" javaType="com.mosaek2.vintage.domain.Member">
+            <id column="member_uid" property="uid"></id>
+            <result column="mail" property="mail"></result>
+            <result column="password" property="password"></result>
+            <result column="phone" property="phone"></result>
+            <result column="phone_alt" property="phoneAlt"></result>
+            <result column="name" property="name"></result> <!--member_tb.name AS member_name-->
+            <result column="birth" property="birth"></result>
+            <result column="solar_yn" property="solarYn"></result>
+            <result column="gender" property="gender"></result>
+            <result column="zip" property="zip"></result>
+            <result column="address" property="address"></result>
+            <result column="address_detail" property="addressDetail"></result>
+            <result column="join_date" property="joinDate"></result>
+            <result column="point" property="point"></result>
+            <result column="point_total" property="pointTotal"></result>
+            <result column="rank" property="rank"></result>
+            <result column="sms_yn" property="smsYn"></result>
+            <result column="mail_yn" property="mailYn"></result>
+            <result column="authority" property="authority"></result>
+            <result column="status" property="status"></result>
+            <result column="withdraw_date" property="withdrawDate"></result>
+            <result column="refund_bank" property="refundBank"></result>
+            <result column="refund_account" property="refundAccount"></result>
+        </association>
+
+        <association property="item" javaType="com.mosaek2.vintage.domain.Item">
+            <id column="item_uid" property="uid"></id>
+            <result column="date" property="date"></result>
+            <result column="cover" property="cover"></result>
+            <result column="detail" property="detail"></result>
+            <result column="brand" property="brand"></result>
+            <result column="item_name" property="name"></result> <!--item_tb.name AS item_name-->
+            <result column="size" property="size"></result>
+            <result column="size_detail" property="sizeDetail"></result>
+            <result column="price" property="price"></result>
+            <result column="discount_rate" property="discountRate"></result>
+            <result column="discount_amount" property="discountAmount"></result>
+            <result column="condition" property="condition"></result>
+            <result column="category1" property="category1"></result>
+            <result column="category2" property="category2"></result>
+            <result column="category3" property="category3"></result>
+            <result column="gender" property="gender"></result>
+            <result column="display_yn" property="displayYn"></result>
+            <result column="md_yn" property="mdYn"></result>
+        </association>
+    </resultMap>
+
+
+    <select id="findNoticePosts" resultMap="postMap">
+        SELECT *
+        FROM post_tb
+        JOIN member_tb
+        ON member_uid = member_tb.uid
+        LEFT JOIN item_tb
+        ON item_uid = item_tb.uid
+        WHERE board = "notice" AND delete_yn = 'n'
+        ORDER BY fix_yn DESC, write_date DESC;
+    </select>
+
+    <select id="findQnaPosts" resultMap="postMap">
+        SELECT *, member_tb.name AS member_name, item_tb.name AS item_name
+        FROM post_tb
+        JOIN member_tb
+        ON member_uid = member_tb.uid
+        LEFT JOIN item_tb
+        ON item_uid = item_tb.uid
+        WHERE board = "qna" AND delete_yn = 'n'
+        ORDER BY fix_yn DESC, write_date DESC;
+    </select>
+
+    <insert id="insertQna">
+        INSERT
+        INTO post_tb (board, title, content, member_uid)
+        VALUES (#{board}, #{title}, #{content}, #{member.uid});
+    </insert>
+
+    <insert id="insertQnaItem">
+        INSERT
+        INTO post_tb (board, title, content, member_uid, item_uid)
+        VALUES (#{board}, #{title}, #{content}, #{member.uid}, #{item.uid});
+    </insert>
+
+    <select id="findPostByUid" resultMap="postMap">
+        SELECT *, member_tb.name AS member_name, item_tb.name AS item_name
+        FROM post_tb
+        JOIN member_tb
+        ON member_uid = member_tb.uid
+        LEFT JOIN item_tb
+        ON item_uid = item_tb.uid
+        WHERE post_tb.uid = #{uid};
+    </select>
+
+    <delete id="deletePostByUid">
+        UPDATE post_tb
+        SET delete_yn = 'y', delete_date = NOW()
+        WHERE uid = #{uid};
+    </delete>
+
+    <update id="updateQna">
+        UPDATE post_tb
+        SET title=#{title}, content=#{content}, modify_date = NOW()
+        WHERE uid = #{uid};
+    </update>
+
+    <update id="updateQnaItem">
+        UPDATE post_tb
+        SET title=#{title}, content=#{content}, item_uid=#{item.uid}, modify_date = NOW()
+        WHERE uid = #{uid};
+    </update>
+</mapper>

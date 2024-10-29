@@ -1,0 +1,51 @@
+#Qna .qnaContainer {
+    margin: 98px auto 0px auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 28px;
+}
+
+#Qna .qnaContainer>button {
+    width: 268px;
+    height: 49px;
+    margin: 77px auto 0px auto;
+    color: #818181;
+    font-size: 15px;
+    border: 1px solid #e2e2e2;
+    background-color: #ececec;
+    transition-duration: 0.5s;
+}
+
+#Qna .qnaContainer>button:hover,
+#Qna .qnaContainer>button:focus {
+    color: #f1a919;
+}
+
+#Qna .pagination {
+    display: flex;
+    margin: 42px auto 0px auto;
+}
+
+#Qna .page-item {
+    margin: 0px 7px;
+    /* 각 페이지 항목 간의 간격 조절 */
+}
+
+#Qna .page-link {
+    padding: 8px 16px;
+    border: 1px solid #e2e2e2;
+    color: #818181;
+    cursor: pointer;
+}
+
+#Qna .page-item.active .page-link {
+    background-color: #ececec;
+    color: #818181;
+}
+
+#Qna .page-item:hover .page-link {
+    background-color: #ececec;
+}

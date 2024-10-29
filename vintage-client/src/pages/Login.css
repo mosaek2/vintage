@@ -1,0 +1,97 @@
+#Login .loginTitle {
+    display: flex;
+    justify-content: center;
+    height: 27px;
+    margin: 114px auto 0px auto;
+    font-size: 20px;
+}
+
+#Login .loginContainer {
+    width: 381px;
+    margin: 100px auto 0px auto;
+}
+
+#Login .line {
+    display: flex;
+    gap: 15px;
+}
+
+#Login .loginKey {
+    font-size: 16px;
+    color: #818181;
+}
+
+#Login .loginContainer input {
+    border: 0px;
+    border-bottom: 1px solid #e2e2e2;
+    outline: 0px;
+    height: 30px;
+    font-size: 14px;
+    margin-top: 10px;
+    width: 256px;
+}
+
+#Login .buttonBox {
+    width: 110px;
+    height: 30px;
+    border: 0px;
+    background-color: #262626;
+    color: #bfbfbf;
+    font-size: 12px;
+    margin-top: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#Login .buttonBox:hover {
+    color: #f1a919;
+}
+
+#Login .margin50 {
+    margin-top: 50px;
+}
+
+#Login .request {
+    width: 381px;
+    height: 49px;
+    margin: 100px auto 0px auto;
+    color: #818181;
+    font-size: 15px;
+    border: 1px solid #e2e2e2;
+    background-color: #ececec;
+    transition-duration: 0.5s;
+}
+
+#Login .request:hover {
+    color: #f1a919;
+}
+
+#Login .request:focus {
+    color: #f1a919;
+}
+
+#Login .or {
+    width: 381px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#Login .margin34 {
+    margin-top: 34px !important;
+}
+
+#Login .orLine {
+    width: 162px;
+    height: 1px;
+    background-color: #e2e2e2;
+}
+
+#Login .orText {
+    font-size: 13px;
+    color: #aaaaaa;
+}

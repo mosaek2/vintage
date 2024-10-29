@@ -1,0 +1,132 @@
+#ItemBox .itemBox {
+    width: 248px;
+    height: 408px;
+}
+
+#ItemBox .coverWrapper {
+    position: relative;
+    width: 248px;
+    height: 248px;
+    border: 1px solid #f3f3f3;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    opacity: 0.95;
+}
+
+#ItemBox .coverWrapper:hover {
+    border: 1px solid #ffe1e1;
+    transform: translate(0px, -5px);
+    opacity: 1;
+}
+
+#ItemBox .coverWrapper:hover>.label {
+    opacity: 0.7 !important;
+}
+
+#ItemBox .label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: #ff5a5a;
+    opacity: 0.6;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+
+    transition-duration: 0.4s;
+}
+
+#ItemBox .cover {
+    width: 246px;
+    height: 246px;
+}
+
+#ItemBox .line {
+    display: flex;
+}
+
+#ItemBox .itemSummary {
+    margin: 16px 0px 0px 10px;
+    font-size: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+#ItemBox .priceBox {
+    margin: 25px 0px 0px 10px;
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+}
+
+#ItemBox .price {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#ItemBox .won {
+    font-size: 16px;
+}
+
+#ItemBox .discountBox {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0px 0px 10px;
+    font-size: 16px;
+    flex-wrap: wrap;
+}
+
+#ItemBox .discount {
+    color: #FF5A5A;
+}
+
+#ItemBox .discount2 {
+    font-weight: bold;
+}
+
+#ItemBox .defaultPrice {
+    color: #b2b2b2;
+    text-decoration: line-through;
+}
+
+#ItemBox .md {
+    margin: 16px 0px 0px 10px;
+
+    width: 48px;
+    height: 20px;
+    border-radius: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    font-size: 10px;
+
+    animation-name: animationMd;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes animationMd {
+    from {
+        background-color: #BED0FF;
+        color: #3C5CCE;
+    }
+
+    to {
+        background-color: #3C5CCE;
+        color: #BED0FF;
+    }
+}

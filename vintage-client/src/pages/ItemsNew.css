@@ -1,0 +1,16 @@
+#ItemsNew .itemContainer {
+    max-width: 1060px;
+    margin: 86px auto 0px auto;
+    column-gap: 22px;
+    row-gap: 100px;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#ItemsNew .new {
+    display: block;
+    width: 442px;
+    height: 189px;
+    margin: 86px auto 0px auto;
+}
