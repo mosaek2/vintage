@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react';
-import './ItemsNew.css';
-import Header from '../components/Header';
-import Main from '../components/Main';
 import axios from 'axios';
-import ItemBox from '../components/ItemBox';
+import { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
+import ItemBox from '../components/ItemBox';
+import Main from '../components/Main';
+import './ItemsNew.css';
 
 export default function ItemsNew() {
     const [itemList, setItemList] = useState();
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/items/new`)
+        axios.get(`${process.env.REACT_APP_API_URL}/items/new`)
             .then(function (response) {
                 console.log(response.data);
                 setItemList(response.data);

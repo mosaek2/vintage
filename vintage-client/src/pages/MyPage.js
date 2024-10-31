@@ -1,15 +1,15 @@
-import Header from '../components/Header';
-import Main from '../components/Main';
-import Footer from '../components/Footer';
-import './MyPage.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import Main from '../components/Main';
+import './MyPage.css';
 
 export default function MyPage() {
     const [member, setMember] = useState({});
 
     useEffect(() => {
-        axios.get('http://localhost:8080/member', { withCredentials: true })
+        axios.get(`${process.env.REACT_APP_API_URL}/member`, { withCredentials: true })
             .then((response) => {
                 console.log(response.data);
                 setMember(response.data);

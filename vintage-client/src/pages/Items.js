@@ -21,7 +21,7 @@ export default function Items() {
     const [itemList, setItemList] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/items?category1=${category1}&category2=${category2}&category3=${category3}&sort=${sort}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/items?category1=${category1}&category2=${category2}&category3=${category3}&sort=${sort}`)
             .then((response) => {
                 console.log(response.data);
                 setItemList(response.data);

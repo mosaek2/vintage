@@ -16,7 +16,7 @@ export default function QnaView() {
     const { get, set } = useContext(ContextSystem);
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/board?uid=${uid}`, { withCredentials: true })
+        axios.get(`${process.env.REACT_APP_API_URL}/board?uid=${uid}`, { withCredentials: true })
             .then((response) => {
                 console.log(response.data);
                 setPost(response.data);
@@ -27,7 +27,7 @@ export default function QnaView() {
                 navigate(-1);
             });
 
-        axios.get(`http://localhost:8080/comments?uid=${uid}`, { withCredentials: true })
+        axios.get(`${process.env.REACT_APP_API_URL}/comments?uid=${uid}`, { withCredentials: true })
             .then((response) => {
                 if (response?.data?.length !== 0) {
                     console.log(response?.data);
@@ -41,7 +41,7 @@ export default function QnaView() {
 
 
     function handleClickModify() {
-        axios.get(`http://localhost:8080/member`, { withCredentials: true })
+        axios.get(`${process.env.REACT_APP_API_URL}/member`, { withCredentials: true })
             .then((response) => {
                 if (response?.data?.uid === post?.member?.uid) {
                     navigate(`/board/qna/modify?uid=${uid}`);
@@ -60,11 +60,11 @@ export default function QnaView() {
     }
 
     function handleClickDelete() {
-        axios.get(`http://localhost:8080/member`, { withCredentials: true })
+        axios.get(`${process.env.REACT_APP_API_URL}/member`, { withCredentials: true })
             .then((response) => {
                 if (response?.data?.uid === post?.member?.uid) {
                     if (window.confirm("정말 삭제하시겠습니까?") === true) {
-                        axios.delete(`http://localhost:8080/board/delete?uid=${uid}`, { withCredentials: true })
+                        axios.delete(`${process.env.REACT_APP_API_URL}/board/delete?uid=${uid}`, { withCredentials: true })
                             .then((response) => {
                                 console.log(response.data);
                                 alert("게시글이 삭제되었습니다.");

@@ -19,7 +19,7 @@ export default function Qna() {
 
     useEffect(() => {
         setCurrentPage(page); // URL에서 페이지 번호를 읽어와 설정
-        axios.get(`http://localhost:8080/board/qna`, { withCredentials: true })
+        axios.get(`${process.env.REACT_APP_API_URL}/board/qna`, { withCredentials: true })
             .then(response => {
                 setPosts(response.data);
             })
@@ -41,7 +41,7 @@ export default function Qna() {
     ));
 
     function handleClickQna() {
-        axios.get('http://localhost:8080/member', { withCredentials: true })
+        axios.get(`${process.env.REACT_APP_API_URL}/member`, { withCredentials: true })
             .then((response) => {
                 navigate('/board/qna/write?uid=');
                 window.scrollTo(0, 0);

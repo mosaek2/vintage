@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react';
-import './ItemsSale.css';
-import Header from '../components/Header';
-import Main from '../components/Main';
 import axios from 'axios';
-import ItemBox from '../components/ItemBox';
+import { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
+import ItemBox from '../components/ItemBox';
+import Main from '../components/Main';
+import './ItemsSale.css';
 
 export default function ItemsSale() {
     const [itemList, setItemList] = useState();
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/items/sale`)
+        axios.get(`${process.env.REACT_APP_API_URL}/items/sale`)
             .then(function (response) {
                 console.log(response.data);
                 setItemList(response.data);

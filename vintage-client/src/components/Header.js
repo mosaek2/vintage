@@ -257,7 +257,7 @@ export default function Header() {
         window.scrollTo(0, 0);
     }
     function handleClickLogout() {
-        axios.get('http://localhost:8080/logout', {
+        axios.get(`${process.env.REACT_APP_API_URL}/logout`, {
             withCredentials: true
         })
             .then((response) => {
@@ -281,7 +281,7 @@ export default function Header() {
     }
 
     function handleClickMyPage() {
-        axios.get('http://localhost:8080/member', { withCredentials: true })
+        axios.get(`${process.env.REACT_APP_API_URL}/member`, { withCredentials: true })
             .then(() => {
                 navigate('/mypage');
                 window.scrollTo(0, 0);
@@ -296,7 +296,7 @@ export default function Header() {
     }
 
     function handleClickCart() {
-        axios.get('http://localhost:8080/member', { withCredentials: true })
+        axios.get(`${process.env.REACT_APP_API_URL}/member`, { withCredentials: true })
             .then(() => {
                 navigate('/');
                 window.scrollTo(0, 0);
@@ -311,7 +311,7 @@ export default function Header() {
     }
 
     function handleClickDibs() {
-        axios.get('http://localhost:8080/member', { withCredentials: true })
+        axios.get(`${process.env.REACT_APP_API_URL}/member`, { withCredentials: true })
             .then(() => {
                 navigate('/');
                 window.scrollTo(0, 0);

@@ -16,7 +16,7 @@ export default function QnaWrite() {
 
     useEffect(() => {
         if (uid !== "") {
-            axios.get(`http://localhost:8080/item?uid=${uid}`)
+            axios.get(`${process.env.REACT_APP_API_URL}/item?uid=${uid}`)
                 .then((response) => {
                     console.log(response?.data);
                     setItem(response?.data);
@@ -40,7 +40,7 @@ export default function QnaWrite() {
             return;
         }
 
-        axios.post('http://localhost:8080/board/qna/insert', {
+        axios.post(`${process.env.REACT_APP_API_URL}/board/qna/insert`, {
             "board": `qna`,
             "title": `${title}`,
             "content": `${content}`,

@@ -1,10 +1,10 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import './QnaModify.css';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Main from '../components/Main';
-import Footer from '../components/Footer';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import './QnaModify.css';
 
 export default function QnaModify() {
     const [searchParams] = useSearchParams();
@@ -16,7 +16,7 @@ export default function QnaModify() {
     const [content, setContent] = useState("");
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/board?uid=${uid}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/board?uid=${uid}`)
             .then((response) => {
                 console.log(response?.data);
                 setPost(response?.data);
@@ -30,7 +30,7 @@ export default function QnaModify() {
     }, [uid]);
 
     function handleClickModify() {
-        axios.put(`http://localhost:8080/board/qna/modify?uid=${uid}`, {
+        axios.put(`${process.env.REACT_APP_API_URL}/board/qna/modify?uid=${uid}`, {
             "uid": `${uid}`,
             "title": `${title}`,
             "content": `${content}`,

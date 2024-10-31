@@ -16,7 +16,7 @@ export default function Item() {
     const [item, setItem] = useState({});
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/item?uid=${uid}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/item?uid=${uid}`)
             .then(function (response) {
                 console.log(response.data);
                 setItem(response.data);
@@ -27,7 +27,7 @@ export default function Item() {
     }, [uid]);
 
     function handleClickQna() {
-        axios.get('http://localhost:8080/member', { withCredentials: true })
+        axios.get(`${process.env.REACT_APP_API_URL}/member`, { withCredentials: true })
             .then((response) => {
                 console.log(response.data);
                 navigate(`/board/qna/write?uid=${uid}`);

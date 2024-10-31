@@ -46,7 +46,7 @@ export default function Join() {
 
         setIsUniqueMailClick(true);
 
-        axios.post('http://localhost:8080/join/mailCheck', {
+        axios.post(`${process.env.REACT_APP_API_URL}/join/mailCheck`, {
             'mail': `${mail}`
         })
             .then((response) => {
@@ -66,7 +66,7 @@ export default function Join() {
 
         setIsUniquePhoneClick(true);
 
-        axios.post('http://localhost:8080/join/phoneCheck', {
+        axios.post(`${process.env.REACT_APP_API_URL}/join/phoneCheck`, {
             'phone': `${phone}`
         })
             .then((response) => {
@@ -201,7 +201,7 @@ export default function Join() {
             return;
         }
 
-        axios.post('http://localhost:8080/join/request', {
+        axios.post(`${process.env.REACT_APP_API_URL}/join/request`, {
             "mail": `${mail}`,
             "password": `${password}`,
             "phone": `${phone}`,

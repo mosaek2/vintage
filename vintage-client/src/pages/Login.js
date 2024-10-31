@@ -48,7 +48,7 @@ export default function Login() {
             return;
         }
 
-        axios.post('http://localhost:8080/login/request', {
+        axios.post(`${process.env.REACT_APP_API_URL}/login/request`, {
             mail: `${mail}`,
             password: `${password}`
         }, { withCredentials: true })
