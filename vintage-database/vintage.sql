@@ -220,6 +220,48 @@ CREATE TABLE IF NOT EXISTS `cart_tb` (
 -- 테이블 데이터 vintage.cart_tb:~0 rows (대략적) 내보내기
 DELETE FROM `cart_tb`;
 
+-- 테이블 vintage.post_tb 구조 내보내기
+CREATE TABLE IF NOT EXISTS `post_tb` (
+  `uid` int(11) NOT NULL AUTO_INCREMENT,
+  `board` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` longtext DEFAULT NULL,
+  `write_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `delete_yn` char(1) NOT NULL DEFAULT 'n',
+  `delete_date` timestamp NULL DEFAULT NULL,
+  `modify_date` timestamp NULL DEFAULT NULL,
+  `fix_yn` char(1) NOT NULL DEFAULT 'n',
+  `answer_yn` char(1) NOT NULL DEFAULT 'n',
+  `member_uid` int(11) NOT NULL,
+  `item_uid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`uid`),
+  KEY `member_uid` (`member_uid`),
+  KEY `item_uid` (`item_uid`),
+  CONSTRAINT `post_tb_ibfk_1` FOREIGN KEY (`member_uid`) REFERENCES `member_tb` (`uid`),
+  CONSTRAINT `post_tb_ibfk_2` FOREIGN KEY (`item_uid`) REFERENCES `item_tb` (`uid`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- 테이블 데이터 vintage.post_tb:~17 rows (대략적) 내보내기
+DELETE FROM `post_tb`;
+INSERT INTO `post_tb` (`uid`, `board`, `title`, `content`, `write_date`, `delete_yn`, `delete_date`, `modify_date`, `fix_yn`, `answer_yn`, `member_uid`, `item_uid`) VALUES
+	(1, 'notice', '업데이트 시간 안내', '업데이트 시간 안내', '2024-08-15 08:16:42', 'n', NULL, NULL, 'n', 'n', 1, NULL),
+	(2, 'qna', '직수입 제품인가요?', '그런가요?', '2024-08-15 08:17:33', 'n', NULL, NULL, 'n', 'y', 10, 80),
+	(3, 'review', 'example_review_title', NULL, '2024-08-15 08:17:55', 'n', NULL, NULL, 'n', 'n', 1, NULL),
+	(4, 'notice', '무료배송 기준 금액 변경 안내 (개정일 : 2023년 11월 28일)', NULL, '2024-08-15 08:46:47', 'n', NULL, NULL, 'y', 'n', 1, NULL),
+	(5, 'notice', '회원 등급제 안내 (개정일 : 2024년 05월 08일) ', NULL, '2024-08-16 01:13:07', 'n', NULL, NULL, 'y', 'n', 1, NULL),
+	(6, 'notice', '배송 조회가 되지 않는 경우', NULL, '2024-08-16 01:16:48', 'n', NULL, NULL, 'n', 'n', 1, NULL),
+	(7, 'notice', '세일 기간 공지사항', NULL, '2024-08-16 01:18:05', 'n', NULL, NULL, 'n', 'n', 1, NULL),
+	(8, 'notice', '택배 발송 안내', NULL, '2024-08-16 01:18:29', 'n', NULL, NULL, 'n', 'n', 1, NULL),
+	(9, 'qna', '배송 관련 문의', '언제 되나요?', '2024-08-16 03:01:06', 'n', NULL, NULL, 'n', 'y', 11, NULL),
+	(10, 'qna', '환불하고 싶어요', '해줘', '2024-08-16 03:01:48', 'n', NULL, NULL, 'n', 'y', 12, 69),
+	(11, 'qna', '환불 문의', '환불 부탁드립니다..', '2024-08-16 03:08:23', 'n', NULL, '2024-08-19 06:51:40', 'n', 'y', 1, 91),
+	(12, 'qna', '로그인 화면에서 오류가 생기는데', '어떻게 하나요?', '2024-08-16 03:10:21', 'n', NULL, NULL, 'n', 'y', 13, NULL),
+	(22, 'qna', '다른 사이즈 입고 계획이 있을까요?', '옷은 넘 이쁜데 혹시 M 사이즈 입고 계획이 있을까요?', '2024-08-19 06:39:42', 'n', NULL, '2024-08-19 06:39:53', 'n', 'y', 28, 8),
+	(26, 'qna', '환불 가능 기간', '안녕하세요~ 산지 1년 조금 넘었는데 혹시 환불 될까요?', '2024-08-19 09:42:23', 'n', NULL, NULL, 'n', 'n', 10, 54),
+	(27, 'qna', '반품 확인', '확인 부탁드려요..', '2024-08-19 09:43:38', 'n', NULL, NULL, 'n', 'n', 11, NULL),
+	(28, 'qna', 'test', 'test...', '2024-08-20 07:34:32', 'y', '2024-08-20 07:39:56', '2024-08-20 07:39:50', 'n', 'n', 1, 57),
+	(29, 'qna', 'test222', 'test333', '2024-08-20 08:29:59', 'y', '2024-08-21 03:45:12', '2024-08-21 03:45:07', 'n', 'y', 1, 21);
+
 -- 테이블 vintage.comment_tb 구조 내보내기
 CREATE TABLE IF NOT EXISTS `comment_tb` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
@@ -279,48 +321,6 @@ CREATE TABLE IF NOT EXISTS `dibs_tb` (
 
 -- 테이블 데이터 vintage.dibs_tb:~0 rows (대략적) 내보내기
 DELETE FROM `dibs_tb`;
-
--- 테이블 vintage.post_tb 구조 내보내기
-CREATE TABLE IF NOT EXISTS `post_tb` (
-  `uid` int(11) NOT NULL AUTO_INCREMENT,
-  `board` varchar(255) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `content` longtext DEFAULT NULL,
-  `write_date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `delete_yn` char(1) NOT NULL DEFAULT 'n',
-  `delete_date` timestamp NULL DEFAULT NULL,
-  `modify_date` timestamp NULL DEFAULT NULL,
-  `fix_yn` char(1) NOT NULL DEFAULT 'n',
-  `answer_yn` char(1) NOT NULL DEFAULT 'n',
-  `member_uid` int(11) NOT NULL,
-  `item_uid` int(11) DEFAULT NULL,
-  PRIMARY KEY (`uid`),
-  KEY `member_uid` (`member_uid`),
-  KEY `item_uid` (`item_uid`),
-  CONSTRAINT `post_tb_ibfk_1` FOREIGN KEY (`member_uid`) REFERENCES `member_tb` (`uid`),
-  CONSTRAINT `post_tb_ibfk_2` FOREIGN KEY (`item_uid`) REFERENCES `item_tb` (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- 테이블 데이터 vintage.post_tb:~17 rows (대략적) 내보내기
-DELETE FROM `post_tb`;
-INSERT INTO `post_tb` (`uid`, `board`, `title`, `content`, `write_date`, `delete_yn`, `delete_date`, `modify_date`, `fix_yn`, `answer_yn`, `member_uid`, `item_uid`) VALUES
-	(1, 'notice', '업데이트 시간 안내', '업데이트 시간 안내', '2024-08-15 08:16:42', 'n', NULL, NULL, 'n', 'n', 1, NULL),
-	(2, 'qna', '직수입 제품인가요?', '그런가요?', '2024-08-15 08:17:33', 'n', NULL, NULL, 'n', 'y', 10, 80),
-	(3, 'review', 'example_review_title', NULL, '2024-08-15 08:17:55', 'n', NULL, NULL, 'n', 'n', 1, NULL),
-	(4, 'notice', '무료배송 기준 금액 변경 안내 (개정일 : 2023년 11월 28일)', NULL, '2024-08-15 08:46:47', 'n', NULL, NULL, 'y', 'n', 1, NULL),
-	(5, 'notice', '회원 등급제 안내 (개정일 : 2024년 05월 08일) ', NULL, '2024-08-16 01:13:07', 'n', NULL, NULL, 'y', 'n', 1, NULL),
-	(6, 'notice', '배송 조회가 되지 않는 경우', NULL, '2024-08-16 01:16:48', 'n', NULL, NULL, 'n', 'n', 1, NULL),
-	(7, 'notice', '세일 기간 공지사항', NULL, '2024-08-16 01:18:05', 'n', NULL, NULL, 'n', 'n', 1, NULL),
-	(8, 'notice', '택배 발송 안내', NULL, '2024-08-16 01:18:29', 'n', NULL, NULL, 'n', 'n', 1, NULL),
-	(9, 'qna', '배송 관련 문의', '언제 되나요?', '2024-08-16 03:01:06', 'n', NULL, NULL, 'n', 'y', 11, NULL),
-	(10, 'qna', '환불하고 싶어요', '해줘', '2024-08-16 03:01:48', 'n', NULL, NULL, 'n', 'y', 12, 69),
-	(11, 'qna', '환불 문의', '환불 부탁드립니다..', '2024-08-16 03:08:23', 'n', NULL, '2024-08-19 06:51:40', 'n', 'y', 1, 91),
-	(12, 'qna', '로그인 화면에서 오류가 생기는데', '어떻게 하나요?', '2024-08-16 03:10:21', 'n', NULL, NULL, 'n', 'y', 13, NULL),
-	(22, 'qna', '다른 사이즈 입고 계획이 있을까요?', '옷은 넘 이쁜데 혹시 M 사이즈 입고 계획이 있을까요?', '2024-08-19 06:39:42', 'n', NULL, '2024-08-19 06:39:53', 'n', 'y', 28, 8),
-	(26, 'qna', '환불 가능 기간', '안녕하세요~ 산지 1년 조금 넘었는데 혹시 환불 될까요?', '2024-08-19 09:42:23', 'n', NULL, NULL, 'n', 'n', 10, 54),
-	(27, 'qna', '반품 확인', '확인 부탁드려요..', '2024-08-19 09:43:38', 'n', NULL, NULL, 'n', 'n', 11, NULL),
-	(28, 'qna', 'test', 'test...', '2024-08-20 07:34:32', 'y', '2024-08-20 07:39:56', '2024-08-20 07:39:50', 'n', 'n', 1, 57),
-	(29, 'qna', 'test222', 'test333', '2024-08-20 08:29:59', 'y', '2024-08-21 03:45:12', '2024-08-21 03:45:07', 'n', 'y', 1, 21);
 
 -- 테이블 vintage.view_tb 구조 내보내기
 CREATE TABLE IF NOT EXISTS `view_tb` (
