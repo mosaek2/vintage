@@ -1,109 +1,6 @@
--- --------------------------------------------------------
--- 호스트:                          127.0.0.1
--- 서버 버전:                        11.4.2-MariaDB - mariadb.org binary distribution
--- 서버 OS:                        Win64
--- HeidiSQL 버전:                  12.6.0.6765
--- --------------------------------------------------------
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
-
 -- vintage 데이터베이스 구조 내보내기
 CREATE DATABASE IF NOT EXISTS `vintage` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `vintage`;
-
--- 테이블 vintage.cart_tb 구조 내보내기
-CREATE TABLE IF NOT EXISTS `cart_tb` (
-  `uid` int(11) NOT NULL AUTO_INCREMENT,
-  `date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `fix_cover` varchar(255) DEFAULT NULL,
-  `fix_brand` varchar(255) DEFAULT NULL,
-  `fix_name` varchar(255) DEFAULT NULL,
-  `fix_size` varchar(255) DEFAULT NULL,
-  `fix_price` int(255) DEFAULT NULL,
-  `fix_discount_rate` double DEFAULT NULL,
-  `fix_discount_amount` int(11) DEFAULT NULL,
-  `item_uid` int(11) NOT NULL,
-  `member_uid` int(11) NOT NULL,
-  `order_uid` int(11) DEFAULT NULL,
-  PRIMARY KEY (`uid`),
-  KEY `item_uid` (`item_uid`),
-  KEY `member_uid` (`member_uid`),
-  KEY `order_uid` (`order_uid`),
-  CONSTRAINT `cart_tb_ibfk_1` FOREIGN KEY (`item_uid`) REFERENCES `item_tb` (`uid`),
-  CONSTRAINT `cart_tb_ibfk_2` FOREIGN KEY (`member_uid`) REFERENCES `member_tb` (`uid`),
-  CONSTRAINT `cart_tb_ibfk_3` FOREIGN KEY (`order_uid`) REFERENCES `order_tb` (`uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- 테이블 데이터 vintage.cart_tb:~0 rows (대략적) 내보내기
-DELETE FROM `cart_tb`;
-
--- 테이블 vintage.comment_tb 구조 내보내기
-CREATE TABLE IF NOT EXISTS `comment_tb` (
-  `uid` int(11) NOT NULL AUTO_INCREMENT,
-  `content` longtext NOT NULL,
-  `write_date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `modify_date` timestamp NULL DEFAULT NULL,
-  `post_uid` int(11) NOT NULL,
-  `member_uid` int(11) NOT NULL,
-  PRIMARY KEY (`uid`),
-  KEY `member_uid` (`member_uid`),
-  KEY `comment_tb_ibfk_1` (`post_uid`),
-  CONSTRAINT `comment_tb_ibfk_1` FOREIGN KEY (`post_uid`) REFERENCES `post_tb` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `comment_tb_ibfk_2` FOREIGN KEY (`member_uid`) REFERENCES `member_tb` (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- 테이블 데이터 vintage.comment_tb:~7 rows (대략적) 내보내기
-DELETE FROM `comment_tb`;
-INSERT INTO `comment_tb` (`uid`, `content`, `write_date`, `modify_date`, `post_uid`, `member_uid`) VALUES
-	(1, '네 직수입 제품입니다.', '2024-08-19 05:41:51', NULL, 2, 1),
-	(2, '곧 됩니다.', '2024-08-19 08:18:45', NULL, 9, 1),
-	(3, '해드리겠습니다.', '2024-08-19 08:19:01', NULL, 10, 1),
-	(4, '알겠습니다.', '2024-08-19 09:31:08', NULL, 11, 1),
-	(5, '알아서 하세요. 항상 VINTAGE를 사랑해주셔서 감사드립니다. ^^', '2024-08-19 09:31:28', NULL, 12, 1),
-	(6, '있을 수도 있고 없을 수도 있습니다.', '2024-08-19 09:32:29', NULL, 22, 1),
-	(7, '의미없는 답변을 해드렸습니다.', '2024-08-20 08:32:26', NULL, 29, 1);
-
--- 테이블 vintage.coupon_tb 구조 내보내기
-CREATE TABLE IF NOT EXISTS `coupon_tb` (
-  `uid` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `discount_rate` double NOT NULL DEFAULT 1,
-  `discount_amount` int(11) NOT NULL DEFAULT 0,
-  `member_uid` int(11) NOT NULL,
-  `order_uid` int(11) DEFAULT NULL,
-  PRIMARY KEY (`uid`),
-  KEY `member_uid` (`member_uid`),
-  KEY `order_uid` (`order_uid`),
-  CONSTRAINT `coupon_tb_ibfk_1` FOREIGN KEY (`member_uid`) REFERENCES `member_tb` (`uid`),
-  CONSTRAINT `coupon_tb_ibfk_2` FOREIGN KEY (`order_uid`) REFERENCES `order_tb` (`uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- 테이블 데이터 vintage.coupon_tb:~0 rows (대략적) 내보내기
-DELETE FROM `coupon_tb`;
-
--- 테이블 vintage.dibs_tb 구조 내보내기
-CREATE TABLE IF NOT EXISTS `dibs_tb` (
-  `uid` int(11) NOT NULL AUTO_INCREMENT,
-  `date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `item_uid` int(11) NOT NULL,
-  `member_uid` int(11) NOT NULL,
-  PRIMARY KEY (`uid`),
-  KEY `item_uid` (`item_uid`),
-  KEY `member_uid` (`member_uid`),
-  CONSTRAINT `dibs_tb_ibfk_1` FOREIGN KEY (`item_uid`) REFERENCES `item_tb` (`uid`),
-  CONSTRAINT `dibs_tb_ibfk_2` FOREIGN KEY (`member_uid`) REFERENCES `member_tb` (`uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- 테이블 데이터 vintage.dibs_tb:~0 rows (대략적) 내보내기
-DELETE FROM `dibs_tb`;
 
 -- 테이블 vintage.item_tb 구조 내보내기
 CREATE TABLE IF NOT EXISTS `item_tb` (
@@ -128,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `item_tb` (
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- 테이블 데이터 vintage.item_tb:~96 rows (대략적) 내보내기
+-- 테이블 데이터 vintage.item_tb:~99 rows (대략적) 내보내기
 DELETE FROM `item_tb`;
 INSERT INTO `item_tb` (`uid`, `date`, `cover`, `detail`, `brand`, `name`, `size`, `size_detail`, `price`, `discount_rate`, `discount_amount`, `condition`, `category1`, `category2`, `category3`, `gender`, `display_yn`, `md_yn`) VALUES
 	(1, '2024-08-06 04:02:02', 'https://blacktreeshop.com/web/product/big/A/i1480.jpg', 'https://cafe24.poxo.com/ec01/yht187/PqYAeXr9cC3ewV7j5+hci+tRIF5xSPrhzUnhJqVTByHHryXRQzy3ySfBH6S3yl+jHo+7prRawNrnzJqRIpxytg==/_/web/product/yang/i1480.jpg', '라퍼지스토어', '페이크 레더 투웨이 자켓', 'M', '68(가슴), 74(기장), 85(팔)', 60000, 0.9, 0, NULL, 'MAN/WOMAN', 'OUTER', '자켓/점퍼', 'MAN', 'y', 'y'),
@@ -261,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `member_tb` (
   UNIQUE KEY `phone` (`phone`)
 ) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- 테이블 데이터 vintage.member_tb:~8 rows (대략적) 내보내기
+-- 테이블 데이터 vintage.member_tb:~7 rows (대략적) 내보내기
 DELETE FROM `member_tb`;
 INSERT INTO `member_tb` (`uid`, `mail`, `password`, `phone`, `phone_alt`, `name`, `birth`, `solar_yn`, `gender`, `zip`, `address`, `address_detail`, `join_date`, `point`, `point_total`, `rank`, `sms_yn`, `mail_yn`, `authority`, `status`, `withdraw_date`, `refund_bank`, `refund_account`) VALUES
 	(1, 'mosaek2@gmail.com', '3dnQfprtm!Vi', '010-3002-0014', '', '권혁민', '1991-05-26', 'y', 'male', '05287', '서울 강동구 상일로 74 (상일동, 고덕리엔파크3단지아파트)', '339동 1203호', '2024-08-05 08:52:32', 0, 0, 'bronze', 'n', 'n', 'role_admin', 'active', NULL, NULL, NULL),
@@ -296,6 +193,92 @@ CREATE TABLE IF NOT EXISTS `order_tb` (
 
 -- 테이블 데이터 vintage.order_tb:~0 rows (대략적) 내보내기
 DELETE FROM `order_tb`;
+
+-- 테이블 vintage.cart_tb 구조 내보내기
+CREATE TABLE IF NOT EXISTS `cart_tb` (
+  `uid` int(11) NOT NULL AUTO_INCREMENT,
+  `date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `fix_cover` varchar(255) DEFAULT NULL,
+  `fix_brand` varchar(255) DEFAULT NULL,
+  `fix_name` varchar(255) DEFAULT NULL,
+  `fix_size` varchar(255) DEFAULT NULL,
+  `fix_price` int(255) DEFAULT NULL,
+  `fix_discount_rate` double DEFAULT NULL,
+  `fix_discount_amount` int(11) DEFAULT NULL,
+  `item_uid` int(11) NOT NULL,
+  `member_uid` int(11) NOT NULL,
+  `order_uid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`uid`),
+  KEY `item_uid` (`item_uid`),
+  KEY `member_uid` (`member_uid`),
+  KEY `order_uid` (`order_uid`),
+  CONSTRAINT `cart_tb_ibfk_1` FOREIGN KEY (`item_uid`) REFERENCES `item_tb` (`uid`),
+  CONSTRAINT `cart_tb_ibfk_2` FOREIGN KEY (`member_uid`) REFERENCES `member_tb` (`uid`),
+  CONSTRAINT `cart_tb_ibfk_3` FOREIGN KEY (`order_uid`) REFERENCES `order_tb` (`uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- 테이블 데이터 vintage.cart_tb:~0 rows (대략적) 내보내기
+DELETE FROM `cart_tb`;
+
+-- 테이블 vintage.comment_tb 구조 내보내기
+CREATE TABLE IF NOT EXISTS `comment_tb` (
+  `uid` int(11) NOT NULL AUTO_INCREMENT,
+  `content` longtext NOT NULL,
+  `write_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `modify_date` timestamp NULL DEFAULT NULL,
+  `post_uid` int(11) NOT NULL,
+  `member_uid` int(11) NOT NULL,
+  PRIMARY KEY (`uid`),
+  KEY `member_uid` (`member_uid`),
+  KEY `comment_tb_ibfk_1` (`post_uid`),
+  CONSTRAINT `comment_tb_ibfk_1` FOREIGN KEY (`post_uid`) REFERENCES `post_tb` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `comment_tb_ibfk_2` FOREIGN KEY (`member_uid`) REFERENCES `member_tb` (`uid`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- 테이블 데이터 vintage.comment_tb:~7 rows (대략적) 내보내기
+DELETE FROM `comment_tb`;
+INSERT INTO `comment_tb` (`uid`, `content`, `write_date`, `modify_date`, `post_uid`, `member_uid`) VALUES
+	(1, '네 직수입 제품입니다.', '2024-08-19 05:41:51', NULL, 2, 1),
+	(2, '곧 됩니다.', '2024-08-19 08:18:45', NULL, 9, 1),
+	(3, '해드리겠습니다.', '2024-08-19 08:19:01', NULL, 10, 1),
+	(4, '알겠습니다.', '2024-08-19 09:31:08', NULL, 11, 1),
+	(5, '알아서 하세요. 항상 VINTAGE를 사랑해주셔서 감사드립니다. ^^', '2024-08-19 09:31:28', NULL, 12, 1),
+	(6, '있을 수도 있고 없을 수도 있습니다.', '2024-08-19 09:32:29', NULL, 22, 1),
+	(7, '의미없는 답변을 해드렸습니다.', '2024-08-20 08:32:26', NULL, 29, 1);
+
+-- 테이블 vintage.coupon_tb 구조 내보내기
+CREATE TABLE IF NOT EXISTS `coupon_tb` (
+  `uid` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `discount_rate` double NOT NULL DEFAULT 1,
+  `discount_amount` int(11) NOT NULL DEFAULT 0,
+  `member_uid` int(11) NOT NULL,
+  `order_uid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`uid`),
+  KEY `member_uid` (`member_uid`),
+  KEY `order_uid` (`order_uid`),
+  CONSTRAINT `coupon_tb_ibfk_1` FOREIGN KEY (`member_uid`) REFERENCES `member_tb` (`uid`),
+  CONSTRAINT `coupon_tb_ibfk_2` FOREIGN KEY (`order_uid`) REFERENCES `order_tb` (`uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- 테이블 데이터 vintage.coupon_tb:~0 rows (대략적) 내보내기
+DELETE FROM `coupon_tb`;
+
+-- 테이블 vintage.dibs_tb 구조 내보내기
+CREATE TABLE IF NOT EXISTS `dibs_tb` (
+  `uid` int(11) NOT NULL AUTO_INCREMENT,
+  `date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `item_uid` int(11) NOT NULL,
+  `member_uid` int(11) NOT NULL,
+  PRIMARY KEY (`uid`),
+  KEY `item_uid` (`item_uid`),
+  KEY `member_uid` (`member_uid`),
+  CONSTRAINT `dibs_tb_ibfk_1` FOREIGN KEY (`item_uid`) REFERENCES `item_tb` (`uid`),
+  CONSTRAINT `dibs_tb_ibfk_2` FOREIGN KEY (`member_uid`) REFERENCES `member_tb` (`uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- 테이블 데이터 vintage.dibs_tb:~0 rows (대략적) 내보내기
+DELETE FROM `dibs_tb`;
 
 -- 테이블 vintage.post_tb 구조 내보내기
 CREATE TABLE IF NOT EXISTS `post_tb` (
@@ -354,9 +337,3 @@ CREATE TABLE IF NOT EXISTS `view_tb` (
 
 -- 테이블 데이터 vintage.view_tb:~0 rows (대략적) 내보내기
 DELETE FROM `view_tb`;
-
-/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
