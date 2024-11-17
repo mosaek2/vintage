@@ -1,27 +1,27 @@
 #Home .banner {
-    max-width: 700px;
-    border: 1px solid #efefef;
-    margin-top: 50px;
+  max-width: 700px;
+  border: 1px solid #efefef;
+  margin-top: 50px;
 }
 
-#Home .banner>.swiper-wrapper>.swiper-slide>img {
-    max-width: 100%;
+#Home .banner > .swiper-wrapper > .swiper-slide > img {
+  max-width: 100%;
 }
 
 #Home .report {
-    max-width: 1100px;
-    height: auto;
-    margin-top: 160px;
+  max-width: 1100px;
+  height: auto;
+  margin-top: 160px;
 }
 
-#Home .report>.swiper-wrapper>.swiper-slide>img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    transition-duration: 0.5s;
+#Home .report > .swiper-wrapper > .swiper-slide > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition-duration: 0.5s;
 }
 
-#Home .report>.swiper-wrapper>.swiper-slide>img:hover {
-    transform: scale(0.95);
+#Home .report > .swiper-wrapper > .swiper-slide > img:hover {
+  transform: scale(0.95);
 }

@@ -1,17 +1,17 @@
 #Main main {
-    min-height: calc(100vh + 200px);
-    padding-top: 155px;
-    position: relative;
+  min-height: calc(100vh + 200px);
+  padding-top: 155px;
+  position: relative;
 }
 
 #Main .darker {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
 
-    background-color: black;
-    opacity: 0.6;
-    z-index: 90;
+  background-color: black;
+  opacity: 0.6;
+  z-index: 90;
 }

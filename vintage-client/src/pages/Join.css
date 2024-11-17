@@ -1,135 +1,135 @@
 #Join .joinTitle {
-    width: 700px;
-    height: 27px;
-    margin: 114px auto 0px auto;
-    font-size: 20px;
+  width: 700px;
+  height: 27px;
+  margin: 114px auto 0px auto;
+  font-size: 20px;
 }
 
 #Join .joinContainer {
-    width: 600px;
-    margin: 100px auto 0px auto;
+  width: 600px;
+  margin: 100px auto 0px auto;
 }
 
 #Join .joinKey {
-    color: #818181;
+  color: #818181;
 }
 
 #Join .margin50 {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 #Join .margin100 {
-    margin-top: 100px;
+  margin-top: 100px;
 }
 
 #Join .joinContainer input {
-    border: 0px;
-    border-bottom: 1px solid #e2e2e2;
-    outline: 0px;
-    height: 30px;
-    font-size: 14px;
-    margin-top: 10px;
+  border: 0px;
+  border-bottom: 1px solid #e2e2e2;
+  outline: 0px;
+  height: 30px;
+  font-size: 14px;
+  margin-top: 10px;
 }
 
 #Join .buttonBox {
-    width: 94px;
-    height: 30px;
-    border: 0px;
-    background-color: #262626;
-    color: #bfbfbf;
-    font-size: 12px;
-    margin-top: 10px;
+  width: 94px;
+  height: 30px;
+  border: 0px;
+  background-color: #262626;
+  color: #bfbfbf;
+  font-size: 12px;
+  margin-top: 10px;
 }
 
 #Join .buttonBox:hover {
-    color: #f1a919;
+  color: #f1a919;
 }
 
 #Join .buttonBox:focus {
-    color: #f1a919;
+  color: #f1a919;
 }
 
 #Join .line {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
 }
 
 #Join .blueWord {
-    color: #5A7EFF;
+  color: #5a7eff;
 }
 
 #Join .redWord {
-    color: #FF5A5A;
+  color: #ff5a5a;
 }
 
 #Join .selectBox {
-    padding: 0px 6px;
-    height: 30px;
-    margin-top: 10px;
+  padding: 0px 6px;
+  height: 30px;
+  margin-top: 10px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    border: 0px;
-    color: #b2b2b2;
-    background-color: white;
-    border-bottom: 1px solid #e2e2e2;
-    font-size: 14px;
-    transition-duration: 0.5s;
+  border: 0px;
+  color: #b2b2b2;
+  background-color: white;
+  border-bottom: 1px solid #e2e2e2;
+  font-size: 14px;
+  transition-duration: 0.5s;
 }
 
 #Join .selectBox:hover {
-    color: black;
+  color: black;
 }
 
 #Join .selectBoxSelect {
-    padding: 0px 6px;
-    height: 30px;
-    margin-top: 10px;
+  padding: 0px 6px;
+  height: 30px;
+  margin-top: 10px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    border: 0px;
-    color: black;
-    background-color: white;
-    border-bottom: 1px solid #e2e2e2;
-    font-size: 14px;
-    transition-duration: 0.4s;
+  border: 0px;
+  color: black;
+  background-color: white;
+  border-bottom: 1px solid #e2e2e2;
+  font-size: 14px;
+  transition-duration: 0.4s;
 }
 
 #Join .birthBox {
-    width: 18px;
-    height: 30px;
-    margin-top: 10px;
+  width: 18px;
+  height: 30px;
+  margin-top: 10px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    border: 0px;
-    border-bottom: 1px solid #e2e2e2;
-    font-size: 14px;
+  border: 0px;
+  border-bottom: 1px solid #e2e2e2;
+  font-size: 14px;
 }
 
 #Join .joinRequest {
-    width: 268px;
-    height: 49px;
-    margin: 130px auto 0px auto;
-    color: #818181;
-    font-size: 15px;
-    border: 1px solid #e2e2e2;
-    background-color: #ececec;
-    transition-duration: 0.5s;
+  width: 268px;
+  height: 49px;
+  margin: 130px auto 0px auto;
+  color: #818181;
+  font-size: 15px;
+  border: 1px solid #e2e2e2;
+  background-color: #ececec;
+  transition-duration: 0.5s;
 }
 
 #Join .joinRequest:hover {
-    color: #f1a919;
+  color: #f1a919;
 }
 
 #Join .joinRequest:focus {
-    color: #f1a919;
+  color: #f1a919;
 }

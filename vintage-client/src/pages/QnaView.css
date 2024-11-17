@@ -1,83 +1,82 @@
 #QnaView .cover {
-    width: 120px;
-    height: 120px;
-    margin: 42px auto 0px auto;
-    border: 1px solid #e2e2e2;
+  width: 120px;
+  height: 120px;
+  margin: 42px auto 0px auto;
+  border: 1px solid #e2e2e2;
 }
 
 #QnaView .item {
-    text-align: center;
-    margin: 22px auto 0px auto;
-    color: #444;
-    font-size: 12px;
+  text-align: center;
+  margin: 22px auto 0px auto;
+  color: #444;
+  font-size: 12px;
 }
 
 #QnaView .answer {
-    margin: 42px auto 0px auto;
-    width: 644px;
-    min-height: 120px;
-    padding: 20px;
-    font-size: 14px;
-    background-color: #fdfff9;
-    border: 1px solid #e2e2e2;
-    color: #818181;
+  margin: 42px auto 0px auto;
+  width: 644px;
+  min-height: 120px;
+  padding: 20px;
+  font-size: 14px;
+  background-color: #fdfff9;
+  border: 1px solid #e2e2e2;
+  color: #818181;
 }
 
 #QnaView .title {
-    margin: 42px auto 0px auto;
-    width: 644px;
-    height: 46px;
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
-    font-size: 15px;
-    border: 1px solid #e2e2e2;
-    color: #818181;
+  margin: 42px auto 0px auto;
+  width: 644px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  font-size: 15px;
+  border: 1px solid #e2e2e2;
+  color: #818181;
 }
 
 #QnaView .content {
-    margin: 18px auto 0px auto;
-    width: 644px;
-    min-height: 120px;
-    padding: 20px;
-    font-size: 14px;
-    border: 1px solid #e2e2e2;
-    color: #818181;
+  margin: 18px auto 0px auto;
+  width: 644px;
+  min-height: 120px;
+  padding: 20px;
+  font-size: 14px;
+  border: 1px solid #e2e2e2;
+  color: #818181;
 }
 
 #QnaView .buttonContainer {
-    width: 644px;
-    display: flex;
-    justify-content: end;
-    gap: 18px;
-    margin: 18px auto 0px auto;
+  width: 644px;
+  display: flex;
+  justify-content: end;
+  gap: 18px;
+  margin: 18px auto 0px auto;
 }
 
 #QnaView .info {
-    min-height: 43px;
-    padding-right: 20px;
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    border: none;
-    color: #818181;
+  min-height: 43px;
+  padding-right: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  border: none;
+  color: #818181;
 }
 
-#QnaView .buttonContainer>button {
-    width: 85px;
-    height: 43px;
-    background-color: #ececec;
-    border: 1px solid #e2e2e2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #818181;
-    font-size: 16px;
-    transition-duration: 0.4s;
+#QnaView .buttonContainer > button {
+  width: 85px;
+  height: 43px;
+  background-color: #ececec;
+  border: 1px solid #e2e2e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #818181;
+  font-size: 16px;
+  transition-duration: 0.4s;
 }
 
-#QnaView .buttonContainer>button:hover,
-#QnaView .buttonContainer>button:focus {
-    color: #f1a919;
-    ;
+#QnaView .buttonContainer > button:hover,
+#QnaView .buttonContainer > button:focus {
+  color: #f1a919;
 }

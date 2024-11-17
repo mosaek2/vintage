@@ -1,91 +1,91 @@
 #PostQna .qnaBox {
-    display: flex;
-    width: 756px;
-    height: 127px;
-    font-size: 13px;
-    border-bottom: 1px solid #e2e2e2;
-    overflow: hidden;
-    transition-duration: 0.4s;
+  display: flex;
+  width: 756px;
+  height: 127px;
+  font-size: 13px;
+  border-bottom: 1px solid #e2e2e2;
+  overflow: hidden;
+  transition-duration: 0.4s;
 }
 
 #PostQna .qnaBox:hover {
-    border-bottom: 1px solid #d0d0d0;
-    transform: translate(0px, 4px);
+  border-bottom: 1px solid #d0d0d0;
+  transform: translate(0px, 4px);
 }
 
 #PostQna .coverBox {
-    width: 127px;
-    height: 127px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 127px;
+  height: 127px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #PostQna .cover {
-    width: 103px;
-    height: 103px;
-    border: 1px solid #e2e2e2;
-    transition-duration: 0.3s;
+  width: 103px;
+  height: 103px;
+  border: 1px solid #e2e2e2;
+  transition-duration: 0.3s;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 11px;
-    color: #e2e2e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11px;
+  color: #e2e2e2;
 }
 
 #PostQna .cover:hover {
-    border: 1px solid #d0d0d0;
-    transform: translate(0px, -2px);
+  border: 1px solid #d0d0d0;
+  transform: translate(0px, -2px);
 }
 
 #PostQna .titleBox {
-    width: 408px;
-    height: 127px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: baseline;
-    gap: 10px;
-    flex-wrap: wrap;
-    padding-left: 10px;
+  width: 408px;
+  height: 127px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-left: 10px;
 }
 
 #PostQna .title {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #PostQna .item {
-    font-size: 11px;
-    color: #b1b1b1;
+  font-size: 11px;
+  color: #b1b1b1;
 }
 
 #PostQna .answer {
-    width: 48px;
-    height: 20px;
-    border-radius: 50px;
+  width: 48px;
+  height: 20px;
+  border-radius: 50px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
 
-    background-color: #dbf0d3;
-    color: #245a1d;
+  background-color: #dbf0d3;
+  color: #245a1d;
 }
 
 #PostQna .nameBox {
-    width: 92px;
-    height: 127px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 92px;
+  height: 127px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #PostQna .dateBox {
-    width: 127px;
-    height: 127px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 127px;
+  height: 127px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
